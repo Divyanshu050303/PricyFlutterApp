@@ -1,4 +1,4 @@
-# pricyapp
+# Flutter
 
 A new Flutter project.
 
