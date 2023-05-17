@@ -35,7 +35,7 @@ class _CalculatorState extends State<Calculator> {
                 icon: const Icon(Icons.backspace_outlined, color: Colors.deepOrange,),
                 iconSize: 40,),
               IconButton(onPressed: () {},
-                icon: const Icon(Icons.add, color: Colors.deepOrange,),
+                icon: const Icon(Icons.percent, color: Colors.deepOrange,),
                 iconSize: 50,),
               IconButton(onPressed: () {},
                 icon: FloatingActionButton(
@@ -99,7 +99,7 @@ class _CalculatorState extends State<Calculator> {
                   icon: FloatingActionButton(
                     onPressed: () {},
                     backgroundColor: Colors.deepOrange,
-                    child: const Icon(Icons.add, color: Colors.white,),)),
+                    child: const Icon(Icons.percent, color: Colors.white,),)),
             ],
           ), Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
