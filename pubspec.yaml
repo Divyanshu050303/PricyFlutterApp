@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  fluid_bottom_nav_bar: ^1.4.0
+  pie_chart: ^5.3.2
 
 
   # The following adds the Cupertino Icons font to your application.
