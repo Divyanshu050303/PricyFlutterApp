@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pricyapp/AddPage.dart';
 import 'package:pricyapp/Sidebar.dart';
 import 'package:pricyapp/Calculator.dart';
 import 'package:pricyapp/homePage.dart';
@@ -18,8 +19,8 @@ class MyApp extends StatelessWidget {
       ),
       // home: const MyHomePage(title: 'Home Page'),
       //  home: Calculator(),
-home: Home(),
-
+        home: Home(),
+//     home:  Home(),
     );
   }
 }
