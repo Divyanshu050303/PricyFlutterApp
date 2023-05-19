@@ -1,6 +1,7 @@
 import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:pricyapp/AddPage.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -230,7 +231,9 @@ class _HomeState extends State<Home> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>AddItem()));
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
