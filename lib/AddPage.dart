@@ -15,22 +15,19 @@ class AddItem extends StatefulWidget {
 const List<String> list = <String>['Grosery', "Petroleum", "Dairy", "Other"];
 
 class _AddItemState extends State<AddItem> {
+
+
   String dropdownValue = list.first;
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: (){   Navigator.push(context,MaterialPageRoute(builder: (context)=>Home()));},
-          child: Icon(Icons.arrow_back),
-        ),
-        title: Text("Add Item"),
-      ),
+
       body: SingleChildScrollView(
         child: Stack(
           children: [
+
             Container(
               width: mediaQueryData.size.width,
               height: mediaQueryData.size.height,
@@ -73,7 +70,7 @@ class _AddItemState extends State<AddItem> {
               width: MediaQuery.of(context).size.width >400 ?mediaQueryData.size.width*0.65:mediaQueryData.size.width*.9,
               child: DropdownButton<String>(
                   value: dropdownValue,
-                  icon: Padding(padding: EdgeInsets.only(left: mediaQueryData.size.width>1000?mediaQueryData.size.width*0.23:mediaQueryData.size.width*0.48),child: const Icon(Icons.arrow_drop_down)),
+                  icon: Padding(padding: EdgeInsets.only(left: mediaQueryData.size.width>1000?mediaQueryData.size.width*0.25:mediaQueryData.size.width*0.5),child: const Icon(Icons.arrow_drop_down,color: Colors.black,)),
                   elevation: 30,
                   style: const TextStyle(
                     color: Colors.black,
@@ -132,4 +129,6 @@ class _AddItemState extends State<AddItem> {
       ),
     );
   }
+
+
 }
