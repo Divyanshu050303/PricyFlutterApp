@@ -1,7 +1,10 @@
-import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+
+import 'AddPage.dart';
+import 'Week.dart';
+import 'homePage.dart';
 
 class MonthPage extends StatefulWidget {
   const MonthPage({Key? key}) : super(key: key);
@@ -11,18 +14,19 @@ class MonthPage extends StatefulWidget {
 }
 
 class _MonthPageState extends State<MonthPage> {
+  Widget? _child;
+
+  @override
+  void initState() {
+    _child = const MonthPage();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Expense Tracker",
-          style: TextStyle(color: Colors.white,fontSize: 25),
-        ),
-        elevation: 0,
-        backgroundColor: Colors.cyan.shade200,
-      ),
+
       body: Stack(
         children: [
           Container(
@@ -37,7 +41,7 @@ class _MonthPageState extends State<MonthPage> {
               width: mediaQueryData.size.width,
               height: mediaQueryData.size.height,
               child: const Text(
-                "Overview",
+                "Month Overview",
                 style: TextStyle(
                   fontSize: 35,
                   color: Colors.black,
@@ -48,7 +52,7 @@ class _MonthPageState extends State<MonthPage> {
             height: 1,
           ),
           Transform.translate(
-              offset: Offset(0, -70),
+              offset: Offset(0, -100),
               child: Container(
                 padding:
                 EdgeInsets.only(top: mediaQueryData.size.height * 0.001),
@@ -58,14 +62,19 @@ class _MonthPageState extends State<MonthPage> {
                 transformAlignment: Alignment.topCenter,
                 margin: const EdgeInsets.only(top: 2),
 
-                child:  PieChart(
+                child: PieChart(
                   dataMap: const {
                     "Flutter": 5,
                     "React": 3,
                     "Xamarin": 3,
                     "Ionic": 2,
                   },
-                  colorList: [Colors.purpleAccent.shade100,Colors.greenAccent.shade200,Colors.pinkAccent.shade200,Colors.blue.shade500],
+                  colorList: [
+                    Colors.purpleAccent.shade100,
+                    Colors.greenAccent.shade200,
+                    Colors.pinkAccent.shade200,
+                    Colors.blue.shade500
+                  ],
                   animationDuration: Duration(milliseconds: 800),
                   chartType: ChartType.ring,
                   ringStrokeWidth: 37,
@@ -106,9 +115,9 @@ class _MonthPageState extends State<MonthPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                        width: mediaQueryData.size.width*0.4,
-                        height: mediaQueryData.size.height*.06,
-                        child:ElevatedButton(
+                        width: mediaQueryData.size.width * 0.4,
+                        height: mediaQueryData.size.height * .06,
+                        child: ElevatedButton(
                           onPressed: () {},
                           style: ButtonStyle(
                             backgroundColor:
@@ -128,10 +137,10 @@ class _MonthPageState extends State<MonthPage> {
 
                           child: const Text("Grocery",
                               style: TextStyle(fontSize: 20)),
-                        )),    SizedBox(
-                        width: mediaQueryData.size.width*0.4,
-                        height: mediaQueryData.size.height*.06,
-                        child:ElevatedButton(
+                        )), SizedBox(
+                        width: mediaQueryData.size.width * 0.4,
+                        height: mediaQueryData.size.height * .06,
+                        child: ElevatedButton(
                           onPressed: () {},
                           style: ButtonStyle(
                             backgroundColor:
@@ -162,9 +171,9 @@ class _MonthPageState extends State<MonthPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                        width: mediaQueryData.size.width*0.4,
-                        height: mediaQueryData.size.height*.06,
-                        child:ElevatedButton(
+                        width: mediaQueryData.size.width * 0.4,
+                        height: mediaQueryData.size.height * .06,
+                        child: ElevatedButton(
                           onPressed: () {},
                           style: ButtonStyle(
                             backgroundColor:
@@ -186,9 +195,9 @@ class _MonthPageState extends State<MonthPage> {
                               style: TextStyle(fontSize: 20)),
                         )),
                     SizedBox(
-                        width: mediaQueryData.size.width*0.4,
-                        height: mediaQueryData.size.height*.06,
-                        child:ElevatedButton(
+                        width: mediaQueryData.size.width * 0.4,
+                        height: mediaQueryData.size.height * .06,
+                        child: ElevatedButton(
                           onPressed: () {},
                           style: ButtonStyle(
                             backgroundColor:
@@ -210,30 +219,40 @@ class _MonthPageState extends State<MonthPage> {
                               style: TextStyle(fontSize: 20)),
                         )),
                   ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: mediaQueryData.size.height * 0.04,
+                      left: mediaQueryData.size.width * 0.7),
+                  child: Container(
+                    width: mediaQueryData.size.width*0.15,
+                    height: mediaQueryData.size.width*0.15,
+                    decoration: BoxDecoration(
+                      color: Colors.cyan,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          offset: Offset(0, 2),
+                          blurRadius: 6,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: IconButton(
+                      onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context)=>const AddItem()));},
+                      icon: const Icon(Icons.add),
+                      iconSize: 30,
+                    ),
+                  ),
                 )
               ],
             ),
           )
         ],
       ),
-      bottomNavigationBar: FluidNavBar(
-        icons: [
-          FluidNavBarIcon(icon: Icons.home),
-          FluidNavBarIcon(icon: Icons.access_alarm_outlined),
-          FluidNavBarIcon(icon: Icons.tiktok),
-          FluidNavBarIcon(icon: Icons.settings),
-        ],
-        style: FluidNavBarStyle(
-          barBackgroundColor: Colors.cyan.shade200,
-          iconUnselectedForegroundColor: Colors.white,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+
+
     );
   }
 }
