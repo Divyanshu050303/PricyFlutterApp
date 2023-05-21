@@ -1,7 +1,10 @@
 import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:pricyapp/MonthPage.dart';
+import 'AddPage.dart';
+import 'Week.dart';
+import 'homePage.dart';
 
 class YearPage extends StatefulWidget {
   const YearPage({Key? key}) : super(key: key);
@@ -11,18 +14,17 @@ class YearPage extends StatefulWidget {
 }
 
 class _YearPageState extends State<YearPage> {
+  Widget? _child;
+
+  @override
+  void initState() {
+    _child = const YearPage();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
     return  Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Expense Tracker",
-          style: TextStyle(color: Colors.white,fontSize: 25),
-        ),
-        elevation: 0,
-        backgroundColor: Colors.cyan.shade200,
-      ),
       body: Stack(
         children: [
           Container(
@@ -37,7 +39,7 @@ class _YearPageState extends State<YearPage> {
               width: mediaQueryData.size.width,
               height: mediaQueryData.size.height,
               child: const Text(
-                "Overview",
+                "Year Overview",
                 style: TextStyle(
                   fontSize: 35,
                   color: Colors.black,
@@ -48,7 +50,7 @@ class _YearPageState extends State<YearPage> {
             height: 1,
           ),
           Transform.translate(
-              offset: Offset(0, -70),
+              offset: const Offset(0, -100),
               child: Container(
                 padding:
                 EdgeInsets.only(top: mediaQueryData.size.height * 0.001),
@@ -66,7 +68,7 @@ class _YearPageState extends State<YearPage> {
                     "Ionic": 2,
                   },
                   colorList: [Colors.purpleAccent.shade100,Colors.greenAccent.shade200,Colors.pinkAccent.shade200,Colors.blue.shade500],
-                  animationDuration: Duration(milliseconds: 800),
+                  animationDuration: const Duration(milliseconds: 800),
                   chartType: ChartType.ring,
                   ringStrokeWidth: 37,
                   centerText: "Expense",
@@ -99,7 +101,7 @@ class _YearPageState extends State<YearPage> {
             // alignment: Alignment.bottomCenter,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 70,
                 ),
                 Row(
@@ -123,9 +125,7 @@ class _YearPageState extends State<YearPage> {
                                 return Colors.purpleAccent.shade100;
                               },
                             ),
-
                           ),
-
                           child: const Text("Grocery",
                               style: TextStyle(fontSize: 20)),
                         )),    SizedBox(
@@ -146,13 +146,10 @@ class _YearPageState extends State<YearPage> {
                                 return Colors.greenAccent.shade200;
                               },
                             ),
-
                           ),
-
                           child: const Text("Petroleum",
                               style: TextStyle(fontSize: 20)),
                         )),
-
                   ],
                 ),
                 const SizedBox(
@@ -203,37 +200,43 @@ class _YearPageState extends State<YearPage> {
                                 return Colors.blue.shade500;
                               },
                             ),
-
                           ),
-
                           child: const Text("Other",
                               style: TextStyle(fontSize: 20)),
                         )),
                   ],
+                ),    Padding(
+                  padding: EdgeInsets.only(
+                      top: mediaQueryData.size.height * 0.04,
+                      left: mediaQueryData.size.width * 0.7),
+                  child: Container(
+                    width: mediaQueryData.size.width*0.15,
+                    height: mediaQueryData.size.width*0.15,
+                    decoration: BoxDecoration(
+                      color: Colors.cyan,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          offset: Offset(0, 2),
+                          blurRadius: 6,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                    child: IconButton(
+                      onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context)=>const AddItem()));},
+                      icon: const Icon(Icons.add),
+                      iconSize: 30,
+                    ),
+                  ),
                 )
               ],
             ),
           )
         ],
       ),
-      bottomNavigationBar: FluidNavBar(
-        icons: [
-          FluidNavBarIcon(icon: Icons.home),
-          FluidNavBarIcon(icon: Icons.access_alarm_outlined),
-          FluidNavBarIcon(icon: Icons.tiktok),
-          FluidNavBarIcon(icon: Icons.settings),
-        ],
-        style: FluidNavBarStyle(
-          barBackgroundColor: Colors.cyan.shade200,
-          iconUnselectedForegroundColor: Colors.white,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+
     );
   }
 }
