@@ -26,7 +26,7 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQueryData = MediaQuery.of(context);
-    double iconSize=mediaQueryData.size.width*0.1;
+
 
     return Scaffold(
         appBar: AppBar(
