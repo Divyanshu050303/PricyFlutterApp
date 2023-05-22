@@ -212,9 +212,7 @@ class _MonthPageState extends State<MonthPage> {
                                 return Colors.blue.shade500;
                               },
                             ),
-
                           ),
-
                           child: const Text("Other",
                               style: TextStyle(fontSize: 20)),
                         )),
@@ -251,8 +249,6 @@ class _MonthPageState extends State<MonthPage> {
           )
         ],
       ),
-
-
     );
   }
 }
