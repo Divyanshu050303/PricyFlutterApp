@@ -50,7 +50,7 @@ class _AddItemState extends State<AddItem> {
                   focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 2)),
                   hintText: "Name of the item",
-                  label: Text(
+                  label: const Text(
                     "Item Name",
                     style: TextStyle(color: Colors.black),
                   ),
@@ -101,7 +101,7 @@ class _AddItemState extends State<AddItem> {
                               left: mediaQueryData.size.width * .008),
                           child: Text(
                             value,
-                            style: TextStyle(fontSize: 15),
+                            style: const TextStyle(fontSize: 15),
                           ),
                         ));
                   }).toList()),
@@ -124,7 +124,7 @@ class _AddItemState extends State<AddItem> {
                     borderSide: BorderSide(color: Colors.black, width: 2),
                   ),
                   hintText: "Date",
-                  label: Text("Date", style: TextStyle(color: Colors.black)),
+                  label: const Text("Date", style: TextStyle(color: Colors.black)),
                   focusColor: Colors.black,
                 ),
               ),
@@ -139,14 +139,14 @@ class _AddItemState extends State<AddItem> {
                         top: mediaQueryData.size.height * .55,
                         left: mediaQueryData.size.width * .4),
                     child:
-                        ElevatedButton(onPressed: () {}, child: Text("Add")))),
+                        ElevatedButton(onPressed: () {}, child: const Text("Add")))),
             Padding(
-                padding: EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(top: 30),
                 child: Row(
                   children: [
                     IconButton(
-                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>NavBar()));},
-                      icon: Icon(Icons.arrow_back),
+                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>const NavBar()));},
+                      icon: const Icon(Icons.arrow_back),
                       iconSize: 40,
                     ),
                     const Text("Add Item", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),)
