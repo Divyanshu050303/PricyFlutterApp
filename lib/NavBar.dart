@@ -29,14 +29,7 @@ class _NavBarState extends State<NavBar> {
 
 
     return Scaffold(
-        appBar: AppBar(
-        title: const Text(
-        "Expense Tracker",
-        style: TextStyle(color: Colors.white,fontSize: 25),
-    ),
-    elevation: 0,
-    backgroundColor: Colors.cyan.shade200,
-    ),
+
     body:
     _child,
       extendBody: true,
@@ -48,8 +41,8 @@ class _NavBarState extends State<NavBar> {
           FluidNavBarIcon(icon: Icons.settings),
         ],
         style: FluidNavBarStyle(
-          barBackgroundColor: Colors.cyan.shade200,
-          iconUnselectedForegroundColor: Colors.white,
+          barBackgroundColor: Colors.cyan.shade100,
+          iconUnselectedForegroundColor: Colors.black,
         ),
         onChange: _handleNavigationChange,
         defaultIndex: 0,
@@ -68,19 +61,19 @@ class _NavBarState extends State<NavBar> {
       switch (index) {
         case 0:
           _child = Home();
-          print(index);
+
           break;
         case 1:
           _child =  WeakPage();
-          print(index);
+
           break;
         case 2:
           _child =  MonthPage();
-          print(index);
+
           break;
         case 3:
           _child=YearPage();
-          print(index);
+
           break;
       }
       _child = AnimatedSwitcher(
