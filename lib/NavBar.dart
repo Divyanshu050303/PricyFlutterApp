@@ -60,28 +60,23 @@ class _NavBarState extends State<NavBar> {
     setState(() {
       switch (index) {
         case 0:
-          _child = Home();
+          _child = const Home();
 
           break;
         case 1:
-          _child =  WeakPage();
+          _child =  const WeakPage();
 
           break;
         case 2:
-          _child =  MonthPage();
+          _child =  const MonthPage();
 
           break;
         case 3:
-          _child=YearPage();
+          _child=const YearPage();
 
           break;
       }
-      _child = AnimatedSwitcher(
-        switchInCurve: Curves.easeOut,
-        switchOutCurve: Curves.easeIn,
-        duration: const Duration(milliseconds: 500),
-        child: _child,
-      );
+
     });
   }
 }
