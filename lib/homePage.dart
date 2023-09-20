@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:pricyapp/Additem.dart';
+import 'package:pricyapp/Dairy.dart';
 import 'Week.dart';
 
 class Home extends StatefulWidget {
@@ -51,7 +53,11 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       SizedBox(width: mediaQueryData.size.width*0.1,),
-                      const Icon(Icons.add_chart_rounded, size: 35,)
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const AddExpense()));
+                        },
+                          child: const Icon(Icons.add_chart_rounded, size: 35,))
                     ],
                   ),
                 ),
@@ -117,50 +123,53 @@ class _HomeState extends State<Home> {
                   ),
                 )),
 
-           Expanded(
-             child: Padding(
-               padding:   EdgeInsets.only(top:mediaQueryData.size.height*0.71),
-               child: Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
+           Padding(
+             padding:   EdgeInsets.only(top:mediaQueryData.size.height*0.71),
+             child: Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap:(){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const Dairy()));
+                      },
+                      child: Container(
                         width: mediaQueryData.size.width * 0.4,
                         height: mediaQueryData.size.height * 0.07,
                         decoration: BoxDecoration(
                             color: Colors.tealAccent.shade200,
                             boxShadow: const [
                               BoxShadow(
-                                color: Colors.white, // Shadow color
-                                spreadRadius: 2, // Spread radius
-                                blurRadius: 2, // Blur radius
-                                offset: Offset(0,1.5),// Offset in the x and y direction
+                                color: Colors.white,
+                                spreadRadius: 1.6,
+                                blurRadius: 1,
+                                offset: Offset(0,1),
                               ),
                             ]
                         ),
                         child: const Center(child: Text("Dairy",style: TextStyle(decoration: TextDecoration.none, fontSize: 20),)),
                       ),
-                      Container(
-                        width: mediaQueryData.size.width * 0.4,
-                        height: mediaQueryData.size.height * 0.07,
-                        decoration: BoxDecoration(
-                            color: Colors.pink.shade400,
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.white, // Shadow color
-                                spreadRadius: 2, // Spread radius
-                                blurRadius: 2, // Blur radius
-                                offset: Offset(0,1.5), // Offset in the x and y direction
-                              ),
-                            ]
-                        ),
-                        child: const Center(child: Text("Petroleum",style: TextStyle(decoration: TextDecoration.none, fontSize: 20),)),
-                      )
-                    ],
-                  ),
-             ),
+                    ),
+                    Container(
+                      width: mediaQueryData.size.width * 0.4,
+                      height: mediaQueryData.size.height * 0.07,
+                      decoration: BoxDecoration(
+                          color: Colors.pink.shade400,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.white, // Shadow color
+                              spreadRadius: 1.6, // Spread radius
+                              blurRadius: 1, // Blur radius
+                              offset: Offset(0,1), // Offset in the x and y direction
+                            ),
+                          ]
+                      ),
+                      child: const Center(child: Text("Petroleum",style: TextStyle(decoration: TextDecoration.none, fontSize: 20),)),
+                    )
+                  ],
+                ),
            ),
 
-            Expanded(child: Padding(
+            Padding(
               padding:   EdgeInsets.only(top: mediaQueryData.size.height*0.8 ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -173,9 +182,9 @@ class _HomeState extends State<Home> {
                         boxShadow: const [
                           BoxShadow(
                             color: Colors.white, // Shadow color
-                            spreadRadius: 2, // Spread radius
-                            blurRadius: 2, // Blur radius
-                            offset: Offset(0,1.5),// Offset in the x and y direction
+                            spreadRadius: 1.6, // Spread radius
+                            blurRadius: 1, // Blur radius
+                            offset: Offset(0,1),// Offset in the x and y direction
                           ),
                         ]
                     ),
@@ -191,9 +200,9 @@ class _HomeState extends State<Home> {
                       boxShadow: const [
                         BoxShadow(
                           color: Colors.white, // Shadow color
-                          spreadRadius: 2, // Spread radius
-                          blurRadius: 2, // Blur radius
-                          offset: Offset(0,1.5), // Offset in the x and y direction
+                          spreadRadius: 1.6, // Spread radius
+                          blurRadius: 1, // Blur radius
+                          offset: Offset(0,1), // Offset in the x and y direction
                         ),
                       ]
                     ),
@@ -201,7 +210,7 @@ class _HomeState extends State<Home> {
                   )
                 ],
               ),
-            ))
+            )
           ],
         ),
       ),
